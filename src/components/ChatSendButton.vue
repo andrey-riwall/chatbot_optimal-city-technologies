@@ -9,7 +9,7 @@
     >
       <path
         d="M20 12L4 4L6 12M20 12L4 20L6 12M20 12H6"
-        stroke="#222222"
+        stroke="#ffffff"
         stroke-width="1.5"
         stroke-linecap="round"
         stroke-linejoin="round"
@@ -28,6 +28,20 @@ export default defineComponent({
 
 <style lang="scss">
 .chat__button-send {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 46px;
+  width: 46px;
+  border-radius: 100%;
   padding: 10px;
+  background: #25d366;
+
+  svg {
+    width: 30px;
+    height: 30px;
+    transform: translateX(2px);
+  }
 }
 </style>

@@ -1,6 +1,11 @@
 <template>
-  <form class="chat__interface" autocomplete="off">
-    <ChatInput />
+  <form
+    class="chat__interface"
+    autocomplete="off"
+    action="#"
+    @submit.prevent="sendMessage"
+  >
+    <ChatInput v-model:value="value" @keydown.enter.prevent="handleEnterKey" />
     <ChatSendButton />
   </form>
 </template>
@@ -12,6 +17,32 @@ import ChatSendButton from "./ChatSendButton.vue";
 
 export default defineComponent({
   name: "ChatInterface",
+  emits: ["submit"],
+  data() {
+    return {
+      value: "",
+    };
+  },
+  methods: {
+    handleEnterKey(event: KeyboardEvent) {
+      if (event.shiftKey) {
+        this.value = this.value + "\n";
+      } else if (this.value.replace(/\n/g, "")) {
+        this.sendMessage();
+      }
+    },
+    sendMessage() {
+      if (this.value.replace(/\n/g, "")) {
+        this.$emit("submit", {
+          value: this.value,
+          author: true,
+          button: false,
+          delayCount: 0,
+        });
+        this.value = "";
+      }
+    },
+  },
   components: {
     ChatInput,
     ChatSendButton,
@@ -27,11 +58,11 @@ export default defineComponent({
   right: 0;
 
   display: flex;
-  align-items: center;
-  gap: 5px;
+  align-items: end;
+  justify-content: space-between;
+  gap: 10px;
 
-  height: 60px;
-  padding: 0 15px 0 30px;
-  border-top: 1px solid rgba($color: #000000, $alpha: 0.3);
+  width: 100%;
+  padding: 13px;
 }
 </style>
