@@ -69,7 +69,9 @@ export default defineComponent({
   &.right {
     align-self: flex-end;
     background: #25d366;
-    color: white;
+    span {
+      color: white;
+    }
   }
 
   &.button {
