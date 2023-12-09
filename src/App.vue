@@ -28,6 +28,8 @@ export default defineComponent({
   font-weight: 400;
   line-height: 100%;
   color: #222;
+
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {

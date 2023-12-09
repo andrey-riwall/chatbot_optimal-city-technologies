@@ -28,10 +28,14 @@ export default defineComponent({
       messageShow: false,
     };
   },
-  emits: ["submit"],
+  emits: {
+    submit(payload: Message) {
+      return payload;
+    },
+  },
   methods: {
     handleClick() {
-      if (this.message.button) {
+      if (this.message.button && !this.messageLoading) {
         this.$emit("submit", {
           value: this.message.value,
           author: true,

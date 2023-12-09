@@ -12,8 +12,7 @@
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
 import ChatMessage from "./ChatMessage.vue";
-import type { Messages } from "../types/ChatTypes";
-import { Message } from "../types/ChatTypes";
+import type { Messages, Message } from "../types/ChatTypes";
 
 export default defineComponent({
   name: "ChatMessages",
@@ -23,7 +22,11 @@ export default defineComponent({
       required: true,
     },
   },
-  emits: ["submit"],
+  emits: {
+    submit(payload: Message) {
+      return payload;
+    },
+  },
   methods: {
     handleSubmit(message: Message) {
       this.$emit("submit", message);
@@ -46,7 +49,7 @@ export default defineComponent({
   gap: 14px;
 
   width: 100%;
-  height: 568px;
+  height: 581px;
   padding: 20px;
 
   overflow-y: auto;
@@ -67,5 +70,11 @@ export default defineComponent({
   background-color: rgba(black, 0.3);
   border-radius: 5px;
   border: 3px solid white;
+}
+
+@media screen and (max-width: 500px), screen and (max-height: 700px) {
+  .chat__messages {
+    height: calc(100vh - 72px - 60px + 13px);
+  }
 }
 </style>

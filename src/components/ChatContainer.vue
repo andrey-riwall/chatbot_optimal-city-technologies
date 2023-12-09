@@ -11,17 +11,14 @@ import { defineComponent } from "vue";
 import ChatHeading from "./ChatHeading.vue";
 import ChatInterface from "./ChatInterface.vue";
 import ChatMessages from "./ChatMessages.vue";
-import type { Messages } from "../types/ChatTypes";
-import { Message } from "../types/ChatTypes";
-import answers from "../chatbot/answers.json";
 import { chatbotLogics } from "../chatbot/chatbotLogics";
+import type { Messages, Message } from "../types/ChatTypes";
 
 export default defineComponent({
   name: "ChatContainer",
   data() {
     return {
       messages: [] as Messages,
-      answers: answers,
     };
   },
   methods: {
@@ -64,7 +61,6 @@ export default defineComponent({
 .chat {
   position: relative;
 
-  max-width: 400px;
   width: 400px;
   height: 700px;
   background: white;
@@ -73,5 +69,18 @@ export default defineComponent({
   background-image: url("../assets/bg.png");
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+@media screen and (max-width: 500px), screen and (max-height: 700px) {
+  .chat {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+    height: auto;
+    width: auto;
+  }
 }
 </style>

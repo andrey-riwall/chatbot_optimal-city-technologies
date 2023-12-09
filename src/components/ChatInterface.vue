@@ -14,10 +14,15 @@
 import { defineComponent } from "vue";
 import ChatInput from "./ChatInput.vue";
 import ChatSendButton from "./ChatSendButton.vue";
+import { Message } from "@/types/ChatTypes";
 
 export default defineComponent({
   name: "ChatInterface",
-  emits: ["submit"],
+  emits: {
+    submit(payload: Message) {
+      return payload;
+    },
+  },
   data() {
     return {
       value: "",

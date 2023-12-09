@@ -21,7 +21,11 @@ export default defineComponent({
   props: {
     value: String,
   },
-  emits: ["update:value"],
+  emits: {
+    "update:value"(payload: string) {
+      return payload;
+    },
+  },
   data: function () {
     return {
       inputHeight: "auto",
