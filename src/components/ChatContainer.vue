@@ -77,6 +77,7 @@ export default defineComponent({
     right: 0;
     bottom: 0;
     transform: translateX(-50%);
+    height: auto;
   }
 }
 
