@@ -72,12 +72,16 @@ export default defineComponent({
 @media screen and (max-width: 500px), screen and (max-height: 700px) {
   .chat {
     position: fixed;
-    left: 0;
+    left: 50%;
     top: 0;
     right: 0;
     bottom: 0;
+    transform: translateX(-50%);
+  }
+}
 
-    height: auto;
+@media screen and (max-width: 500px), screen and (max-height: 400px) {
+  .chat {
     width: auto;
   }
 }

@@ -39,26 +39,7 @@ export default defineComponent({
       });
     },
   },
-  // mounted() {},
   components: { ChatMessage },
-  // watch: {
-  //   "messages.length"(newL: number, oldL: number) {
-  //     console.log(oldL, newL);
-  //     const messagesBlock = this.$refs.messagesBlock as HTMLUListElement;
-  //     setTimeout(() => {
-  //       messagesBlock.scrollTop = messagesBlock.scrollHeight;
-  //     }, 10);
-  //     let i = 0;
-  //     const interval = setInterval(() => {
-  //       console.log(i);
-  //       if (i == (newL - oldL) * 2) {
-  //         clearInterval(interval);
-  //       }
-  //       i += 1;
-  //       messagesBlock.scrollTop = messagesBlock.scrollHeight;
-  //     }, 500);
-  //   },
-  // },
 });
 </script>
 
@@ -92,7 +73,7 @@ export default defineComponent({
   border: 3px solid white;
 }
 
-@media screen and (max-width: 500px), screen and (max-height: 700px) {
+@media screen and (max-width: 500px), screen and (max-height: 400px) {
   .chat__messages {
     height: calc(100vh - 72px - 60px + 13px);
   }
