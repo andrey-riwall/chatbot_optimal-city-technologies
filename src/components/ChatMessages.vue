@@ -36,9 +36,10 @@ export default defineComponent({
       const messagesBlock = this.$refs.messagesBlock as HTMLUListElement;
       setTimeout(() => {
         messagesBlock.scrollTop = messagesBlock.scrollHeight;
-      }, 10);
+      });
     },
   },
+  // mounted() {},
   components: { ChatMessage },
   // watch: {
   //   "messages.length"(newL: number, oldL: number) {
