@@ -53,9 +53,13 @@ export default defineComponent({
       this.messageShow = true;
       this.$emit("show", true);
     }, this.message.delayCount * 1000);
-    setTimeout(() => {
+    if (this.message.author) {
       this.messageLoading = false;
-    }, this.message.delayCount * 1000 + 1000);
+    } else {
+      setTimeout(() => {
+        this.messageLoading = false;
+      }, this.message.delayCount * 1000 + 1000);
+    }
   },
 });
 </script>
