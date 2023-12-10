@@ -41,11 +41,9 @@ export default defineComponent({
     "messages.length"() {
       const lastMessage = this.messages[this.messages.length - 1];
       if (lastMessage.author) {
-        setTimeout(() => {
-          chatbotLogics(lastMessage.value).forEach((el: Message) => {
-            this.submit(el);
-          });
-        }, 1000);
+        chatbotLogics(lastMessage.value).forEach((el: Message) => {
+          this.submit(el);
+        });
       }
     },
   },
