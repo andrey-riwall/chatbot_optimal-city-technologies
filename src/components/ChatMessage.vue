@@ -32,6 +32,9 @@ export default defineComponent({
     submit(payload: Message) {
       return payload;
     },
+    show(payload: boolean) {
+      return payload;
+    },
   },
   methods: {
     handleClick() {
@@ -48,6 +51,7 @@ export default defineComponent({
   mounted() {
     setTimeout(() => {
       this.messageShow = true;
+      this.$emit("show", true);
     }, this.message.delayCount * 1000);
     setTimeout(() => {
       this.messageLoading = false;

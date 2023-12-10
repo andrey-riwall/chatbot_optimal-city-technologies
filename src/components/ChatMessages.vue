@@ -2,6 +2,7 @@
   <ul class="chat__messages" ref="messagesBlock">
     <ChatMessage
       @submit="handleSubmit"
+      @show="scrollPage"
       v-for="message in messages"
       :key="messages.indexOf(message)"
       :message="message"
@@ -31,14 +32,32 @@ export default defineComponent({
     handleSubmit(message: Message) {
       this.$emit("submit", message);
     },
-  },
-  components: { ChatMessage },
-  watch: {
-    "messages.length"() {
+    scrollPage() {
       const messagesBlock = this.$refs.messagesBlock as HTMLUListElement;
-      messagesBlock.scrollTop = messagesBlock.scrollHeight;
+      setTimeout(() => {
+        messagesBlock.scrollTop = messagesBlock.scrollHeight;
+      }, 10);
     },
   },
+  components: { ChatMessage },
+  // watch: {
+  //   "messages.length"(newL: number, oldL: number) {
+  //     console.log(oldL, newL);
+  //     const messagesBlock = this.$refs.messagesBlock as HTMLUListElement;
+  //     setTimeout(() => {
+  //       messagesBlock.scrollTop = messagesBlock.scrollHeight;
+  //     }, 10);
+  //     let i = 0;
+  //     const interval = setInterval(() => {
+  //       console.log(i);
+  //       if (i == (newL - oldL) * 2) {
+  //         clearInterval(interval);
+  //       }
+  //       i += 1;
+  //       messagesBlock.scrollTop = messagesBlock.scrollHeight;
+  //     }, 500);
+  //   },
+  // },
 });
 </script>
 
