@@ -83,6 +83,8 @@ export default defineComponent({
 
 @media screen and (max-width: 500px), screen and (max-height: 400px) {
   .chat {
+    left: 0;
+    transform: none;
     width: auto;
   }
 }
